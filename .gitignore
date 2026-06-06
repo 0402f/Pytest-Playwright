@@ -16,9 +16,9 @@ venv/
 *.swo
 
 # 测试运行时产物
-screenshots/
-logs/
-reports/
+/screenshots/
+/logs/
+/reports/
 .pytest_cache/
 
 # 系统文件

@@ -2,6 +2,52 @@
 
 > 基于 **Playwright + Python + pytest** 的 UI 自动化测试框架，专为初学者设计。
 
+## 🌐 被测网站
+
+| 项目 | 说明 |
+|------|------|
+| **网站地址** | **[http://49.233.201.174:1234/](http://49.233.201.174:1234/)** |
+| **网站名称** | HeritageCraft（非遗传承） |
+| **开发状态** | 🚧 自主开发中 —— 湖北省非物质文化遗产数字化保护与传播平台 |
+| **技术栈** | Vue.js SPA 单页应用 |
+| **收录规模** | 146 个非遗项目 / 141 位传承人 / 覆盖 19 个地市州 |
+
+> 💡 这个网站是我自己开发的，所以本框架的页面对象和测试用例都是根据实际业务场景设计的，非 demo 模板。
+
+---
+
+## 📸 网站实测截图
+
+### 首页
+![首页截图](docs/screenshots/homepage.png)
+
+### 非遗文化页（搜索 + 筛选 + 分页）
+![非遗文化页](docs/screenshots/culture.png)
+
+### 传承人页（分类筛选 + 详情卡片）
+![传承人页](docs/screenshots/inheritors.png)
+
+### 非遗商城（商品展示 + 分类 + 购物车）
+![非遗商城](docs/screenshots/mall.png)
+
+---
+
+## 🧪 自动化测试报告
+
+**最新冒烟测试结果（12 passed, 0 failed）** 👇
+
+[📊 查看完整 HTML 测试报告](docs/test_report.html)（下载后用浏览器打开）
+
+| 指标 | 结果 |
+|------|------|
+| 通过 | ✅ 12 |
+| 失败 | ❌ 0 |
+| 跳过 | ⏭️ 1 |
+| 耗时 | ⚡ 66 秒 |
+| 覆盖页面 | 首页 / 导航 / 非遗文化 / 传承人 / 活动 / 商城 / 社区 / 通知 |
+
+---
+
 ## 📚 适合谁看？
 
 - 想学习 UI 自动化测试的 **测试工程师**
@@ -40,9 +86,9 @@ Playwright/
 │   └── data_loader.py   测试数据加载
 ├── data/
 │   └── test_data.yaml   测试数据（数据驱动）
-├── reports/             测试报告输出
-├── logs/                日志文件输出
-├── screenshots/         失败截图输出
+├── docs/                文档 & 截图 & 报告
+│   ├── screenshots/     网站实测截图
+│   └── test_report.html 自动化测试报告
 ├── pytest.ini           pytest 配置
 ├── requirements.txt     依赖包
 ├── run_tests.py         一键运行脚本
@@ -71,9 +117,10 @@ playwright install chromium
 ```bash
 # 方式一：一键运行（推荐新手使用）
 python run_tests.py                    # 全部测试
-python run_tests.py --smoke            # 仅冒烟测试
+python run_tests.py --smoke            # 仅冒烟测试（12条，~60秒）
+python run_tests.py --regression       # 回归测试（~50条，~5分钟）
 python run_tests.py --report           # 生成 HTML 报告
-python run_tests.py --headless         # 无头模式
+python run_tests.py --headless         # 无头模式（CI/CD用）
 
 # 方式二：直接用 pytest（更灵活）
 pytest tests/ -v                                 # 全部测试
@@ -87,7 +134,7 @@ pytest tests/ -v --html=reports/report.html      # 生成报告
 - **控制台输出**：测试通过/失败实时显示
 - **失败截图**：`screenshots/` 目录下自动保存
 - **运行日志**：`logs/YYYYMMDD_test_run.log`
-- **HTML 报告**：`reports/report.html`（浏览器打开）
+- **HTML 报告**：`reports/report.html`（浏览器打开，或用 `docs/test_report.html` 查看示例）
 
 ## 📖 核心设计模式
 
