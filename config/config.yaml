@@ -1,0 +1,59 @@
+# ============================================================
+# UI 自动化测试框架 - 集中配置文件
+# 所有环境相关的配置（URL、超时、浏览器等）统一管理在这里
+# 面试考点：为什么用 YAML？- 可读性好、支持注释、层级结构清晰
+# ============================================================
+
+# ---- 基础配置 ----
+base_url: "http://49.233.201.174:1234"
+
+# ---- 超时配置（单位：毫秒）----
+# Playwright 的自动等待机制：操作前默认等待元素可见/可交互
+timeout:
+  default: 30000       # 默认超时 30秒
+  navigation: 60000    # 页面导航超时 60秒（有些页面加载慢）
+  element: 10000       # 单个元素等待超时 10秒
+  slow_motion: 0       # 慢放速度(ms)，调试时设为 1000 可以看到每一步操作
+
+# ---- 浏览器配置 ----
+browser:
+  # 可选: chromium / firefox / webkit
+  # chromium 是最常用的选择，与 Chrome 内核相同
+  type: chromium
+  # 是否无头模式（headless = 不显示浏览器窗口）
+  # 本地调试时设 false，CI/CD 环境设 true
+  headless: false
+  # 视口大小
+  viewport:
+    width: 1920
+    height: 1080
+  # 忽略 HTTPS 证书错误（内网测试环境常用）
+  ignore_https_errors: true
+  # 浏览器语言
+  locale: "zh-CN"
+
+# ---- 截图配置 ----
+screenshot:
+  # 测试失败时自动截图
+  on_failure: true
+  # 截图保存目录
+  dir: "screenshots"
+  # 是否全页截图
+  full_page: true
+
+# ---- 报告配置 ----
+report:
+  # HTML 报告输出目录
+  dir: "reports"
+
+# ---- 重试配置 ----
+# 失败用例自动重试次数（仅当安装了 pytest-rerunfailures）
+retry: 2
+
+# ---- 日志配置 ----
+log:
+  dir: "logs"
+  # 控制台日志级别: DEBUG/INFO/WARNING/ERROR
+  console_level: INFO
+  # 文件日志级别
+  file_level: DEBUG

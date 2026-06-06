@@ -1,0 +1,28 @@
+# ============================================================
+# UI 自动化测试框架 依赖包
+# 安装方式: pip install -r requirements.txt
+# ============================================================
+
+# 核心：Playwright 浏览器自动化库
+playwright>=1.40.0
+
+# Python 测试框架
+pytest>=8.0.0
+
+# Playwright 的 pytest 插件，提供 page/browser 等 fixture
+# 【面试考点】这个插件让我们直接用 page fixture，不用手动管理浏览器生命周期
+pytest-playwright>=0.4.0
+
+# 生成 HTML 格式的测试报告
+# 用法: pytest --html=reports/report.html --self-contained-html
+pytest-html>=4.1.0
+
+# YAML 配置文件解析（用于 config.yaml 和 test_data.yaml）
+PyYAML>=6.0
+
+# （可选）失败用例重试插件
+# 用法: pytest --reruns 2
+pytest-rerunfailures>=13.0
+
+# （可选）Allure 报告框架（更专业，面试加分项）
+# allure-pytest>=2.13.0

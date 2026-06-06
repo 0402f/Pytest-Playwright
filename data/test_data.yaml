@@ -1,0 +1,79 @@
+# ============================================================
+# 测试数据文件
+# 用于数据驱动测试（配合 @pytest.mark.parametrize 使用）
+#
+# 面试考点：为什么用 YAML 存测试数据？
+# 1. 可读性好，非技术人员也能编辑
+# 2. 支持注释，方便标注数据用途
+# 3. 层级结构清晰
+# 4. 可以将敏感数据单独管理（.gitignore 忽略）
+# ============================================================
+
+# ---- 导航链接测试数据 ----
+# 用于 test_navigation.py 的 test_navigate_to_page 参数化测试
+navigation_links:
+  - name: 首页
+    path: /
+    page_title: 首页
+  - name: 非遗文化
+    path: /culture
+    page_title: 非遗文化
+  - name: 传承人
+    path: /inheritors
+    page_title: 传承人
+  - name: 非遗活动
+    path: /events
+    page_title: 非遗活动
+  - name: 非遗商城
+    path: /mall
+    page_title: 非遗商城
+  - name: 社区交流
+    path: /community
+    page_title: 社区交流
+  - name: 系统通知
+    path: /notifications
+    page_title: 系统通知
+
+# ---- 搜索关键词测试数据 ----
+# 用于 test_culture.py 的搜索测试
+search_keywords:
+  - 武当武术
+  - 汉绣
+  - 黄梅戏
+  - 土家族摆手舞
+  - 董永传说
+  - 下堡坪民间故事
+  - 越调
+
+# ---- 活动类型筛选测试数据 ----
+event_types:
+  - 展览展演
+  - 讲座研学
+  - 节庆活动
+  - 技艺工坊
+  - 文创市集
+
+# ---- 商城分类测试数据 ----
+mall_categories:
+  - 全部
+  - 家居
+  - 文具
+  - 美食
+  - 饰品
+
+# ---- 通知标签页测试数据 ----
+notification_tabs:
+  - 全部通知
+  - 系统公告
+  - 活动动态
+  - 维护/紧急
+
+# ---- 登录测试数据（示例）----
+# 实际使用时，敏感信息应该从环境变量读取
+login_users:
+  - username: admin
+    password: admin123
+    role: 管理员
+  - username: user
+    password: user123
+    role: 普通用户
