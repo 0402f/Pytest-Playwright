@@ -24,10 +24,8 @@ PROJECT_ROOT = Path(__file__).parent
 def run_pytest(args: list) -> int:
     """
     执行 pytest 命令
-
     Args:
         args: pytest 命令行参数列表
-
     Returns:
         退出码（0=成功，非0=失败）
     """
@@ -39,11 +37,9 @@ def run_pytest(args: list) -> int:
         "-s",                        # 允许 print 输出
         "--tb=short",                # 简短的回溯信息
     ] + args
-
     print(f"\n{'='*60}")
     print(f"执行命令: {' '.join(cmd)}")
     print(f"{'='*60}\n")
-
     # 执行命令，实时输出结果
     result = subprocess.run(
         cmd,
